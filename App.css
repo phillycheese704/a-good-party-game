@@ -1,0 +1,1183 @@
+.app {
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  color: white;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.14), transparent 28%),
+    linear-gradient(135deg, #14002e, #25146b 45%, #0066ff);
+  background-size: 140% 140%;
+  animation: backgroundShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.backgroundBlob {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(24px);
+  opacity: 0.32;
+  animation: blobFloat 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.blobOne {
+  width: 220px;
+  height: 220px;
+  background: #ff2bd6;
+  top: 55px;
+  left: -75px;
+}
+
+.blobTwo {
+  width: 260px;
+  height: 260px;
+  background: #00f5ff;
+  right: -90px;
+  bottom: 25px;
+  animation-delay: 2s;
+}
+
+.blobThree {
+  width: 180px;
+  height: 180px;
+  background: #fff15c;
+  left: 55%;
+  top: 70%;
+  opacity: 0.18;
+  animation-delay: 4s;
+}
+
+@keyframes blobFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(18px, -18px) scale(1.05);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.topBar {
+  position: relative;
+  z-index: 2;
+  height: 52px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.logoIcon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.statusPill {
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.screen {
+  position: relative;
+  z-index: 2;
+  height: calc(100dvh - 52px);
+  display: grid;
+  place-items: center;
+  padding: 8px;
+}
+
+.mainCard {
+  width: min(860px, 94vw);
+  max-height: calc(100dvh - 68px);
+  overflow: hidden;
+  padding: 16px;
+  border-radius: 24px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.startCard {
+  width: min(650px, 94vw);
+}
+
+.lobbyCard {
+  width: min(820px, 94vw);
+}
+
+.pickCard {
+  width: min(1120px, 96vw);
+}
+
+.readyCard {
+  width: min(740px, 94vw);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #9ffcff;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 950;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+
+.subtitle {
+  max-width: 560px;
+  margin: 9px auto 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(14px, 1.8vw, 16px);
+  line-height: 1.3;
+}
+
+.nameBox {
+  max-width: 380px;
+  margin: 16px auto 0;
+}
+
+label {
+  display: block;
+  margin: 0 0 6px;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 850;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 850;
+  color: #171133;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+input:focus {
+  box-shadow: 0 0 0 4px rgba(0, 245, 255, 0.28);
+}
+
+button {
+  font-family: inherit;
+}
+
+.megaButton,
+.primaryButton,
+.secondaryButton,
+.ghostButton {
+  border: 0;
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 950;
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    opacity 0.16s ease;
+}
+
+.megaButton {
+  width: min(380px, 100%);
+  margin-top: 13px;
+  font-size: 23px;
+  letter-spacing: 3px;
+  color: #15002f;
+  background: linear-gradient(135deg, #fff15c, #ff9f1c);
+  box-shadow: 0 12px 30px rgba(255, 159, 28, 0.35);
+}
+
+.primaryButton {
+  color: #15002f;
+  background: linear-gradient(135deg, #fff15c, #ff9f1c);
+  box-shadow: 0 12px 30px rgba(255, 159, 28, 0.35);
+}
+
+.secondaryButton {
+  color: white;
+  background: linear-gradient(135deg, #00c2ff, #7c3aed);
+  box-shadow: 0 12px 30px rgba(0, 194, 255, 0.25);
+}
+
+.ghostButton {
+  color: white;
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.ghostButton.small {
+  margin-top: 10px;
+  padding: 9px 15px;
+  font-size: 14px;
+}
+
+.megaButton:hover,
+.primaryButton:hover,
+.secondaryButton:hover,
+.ghostButton:hover,
+.miniGameCard:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+.miniGameStrip {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.miniGameStrip span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.13);
+}
+
+.roomActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 15px 0 0;
+}
+
+.actionPanel {
+  padding: 15px;
+  border-radius: 20px;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.actionPanel h2 {
+  margin: 0 0 5px;
+  font-size: 25px;
+}
+
+.actionPanel p {
+  min-height: 34px;
+  margin: 0 0 9px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.3;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.actionPanel button {
+  width: 100%;
+  margin-top: 9px;
+}
+
+.codeBox {
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 350px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #160034;
+}
+
+.codeBox span,
+.selectedBox span,
+.timerBox span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.65;
+}
+
+.codeBox strong {
+  font-size: clamp(28px, 5vw, 42px);
+  letter-spacing: 6px;
+}
+
+.playersPanel {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.panelHeader h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.countBadge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #160034;
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: 950;
+  font-size: 13px;
+}
+
+.playerList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  max-height: 126px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.playerList::-webkit-scrollbar,
+.queueList::-webkit-scrollbar,
+.gameGrid::-webkit-scrollbar,
+.onlinePickList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.playerList::-webkit-scrollbar-thumb,
+.queueList::-webkit-scrollbar-thumb,
+.gameGrid::-webkit-scrollbar-thumb,
+.onlinePickList::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.miniPlayer {
+  position: relative;
+  min-width: 0;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 14px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: #180038;
+  background: linear-gradient(135deg, #fff15c, #ff9f1c);
+  font-size: 20px;
+  font-weight: 950;
+}
+
+.smallAvatar {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 11px;
+  font-size: 14px;
+}
+
+.miniPlayerInfo {
+  min-width: 0;
+}
+
+.miniPlayerInfo strong {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.miniPlayerInfo span {
+  display: block;
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.removeBotButton {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  width: 19px;
+  height: 19px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  color: white;
+  background: rgba(255, 255, 255, 0.16);
+  font-weight: 950;
+}
+
+.removeBotButton:hover {
+  background: rgba(255, 70, 100, 0.7);
+}
+
+.fullWidth {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.buttonRow button {
+  min-width: 126px;
+}
+
+.pickTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.timerBox {
+  min-width: 115px;
+  padding: 10px 12px;
+  border-radius: 18px;
+  text-align: center;
+  color: #160034;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.timerBox strong {
+  display: block;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.gameGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.miniGameCard {
+  min-height: 138px;
+  padding: 12px;
+  border: 0;
+  border-radius: 18px;
+  cursor: pointer;
+  text-align: left;
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.13),
+    0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.miniGameCard.chosen {
+  background:
+    linear-gradient(135deg, rgba(255, 241, 92, 0.28), rgba(255, 159, 28, 0.22)),
+    rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 0 0 3px rgba(255, 241, 92, 0.55),
+    0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+.gameEmoji {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.miniGameCard h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.miniGameCard p {
+  min-height: 38px;
+  margin: 0 0 7px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.2;
+  font-size: 12px;
+}
+
+.miniGameCard small {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 10px;
+  font-weight: 950;
+}
+
+.pickBottom {
+  margin-top: 10px;
+}
+
+.selectedBox {
+  margin: 12px auto 0;
+  padding: 11px;
+  max-width: 360px;
+  border-radius: 18px;
+  color: #160034;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.selectedBox.compact {
+  margin-top: 0;
+  padding: 10px;
+}
+
+.selectedBox strong {
+  font-size: 22px;
+}
+
+.onlinePickList {
+  width: min(640px, 100%);
+  max-height: 96px;
+  overflow-y: auto;
+  margin: 9px auto 0;
+  padding-right: 4px;
+}
+
+.onlinePickList div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 9px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.onlinePickList div + div {
+  margin-top: 5px;
+}
+
+.onlinePickList span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.onlinePickList strong {
+  white-space: nowrap;
+}
+
+.tinyNote {
+  margin: 7px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.gameQueue {
+  width: min(540px, 100%);
+  margin: 12px auto 0;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.gameQueue h2 {
+  margin: 0 0 7px;
+  font-size: 20px;
+}
+
+.queueList {
+  max-height: 210px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.queueItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 9px;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+}
+
+.queueItem + .queueItem {
+  margin-top: 5px;
+}
+
+.queueItem span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.queueItem strong {
+  white-space: nowrap;
+}
+
+/* Popups */
+
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(4, 0, 20, 0.58);
+  backdrop-filter: blur(10px);
+  animation: popupFadeIn 0.18s ease-out;
+}
+
+.popupCard {
+  width: min(390px, 92vw);
+  padding: 22px;
+  border-radius: 26px;
+  text-align: center;
+  color: white;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 38%),
+    rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  animation: popupPopIn 0.2s ease-out;
+}
+
+.popupIcon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 10px;
+  border-radius: 18px;
+  font-size: 28px;
+  color: #15002f;
+  background: linear-gradient(135deg, #fff15c, #ff9f1c);
+}
+
+.popupCard h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.popupCard p {
+  margin: 9px 0 16px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.popupCard .primaryButton {
+  width: 100%;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Smaller screens */
+
+@media (max-width: 900px) {
+  .gameGrid {
+    grid-template-columns: repeat(3, 1fr);
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  .miniGameCard {
+    min-height: 128px;
+  }
+}
+
+@media (max-width: 750px) {
+  .topBar {
+    height: 48px;
+    padding: 0 12px;
+  }
+
+  .logo {
+    font-size: 15px;
+  }
+
+  .logoIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .statusPill {
+    font-size: 12px;
+    padding: 6px 9px;
+  }
+
+  .screen {
+    height: calc(100dvh - 48px);
+    padding: 6px;
+  }
+
+  .mainCard {
+    width: 96vw;
+    max-height: calc(100dvh - 60px);
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .roomActions {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .actionPanel {
+    padding: 11px;
+  }
+
+  .actionPanel h2 {
+    font-size: 20px;
+  }
+
+  .actionPanel p {
+    min-height: auto;
+    font-size: 12px;
+  }
+
+  .playerList {
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 132px;
+  }
+
+  .pickTop {
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .timerBox {
+    min-width: 88px;
+    padding: 8px;
+  }
+
+  .timerBox strong {
+    font-size: 22px;
+  }
+
+  .gameGrid {
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 205px;
+    overflow-y: auto;
+  }
+
+  .miniGameCard {
+    min-height: 112px;
+    padding: 10px;
+  }
+
+  .gameEmoji {
+    font-size: 24px;
+    margin-bottom: 2px;
+  }
+
+  .miniGameCard h2 {
+    font-size: 16px;
+  }
+
+  .miniGameCard p {
+    min-height: auto;
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+
+  .miniGameStrip {
+    display: none;
+  }
+
+  .buttonRow {
+    gap: 7px;
+    margin-top: 8px;
+  }
+
+  .buttonRow button {
+    min-width: 0;
+    flex: 1;
+    padding: 10px 9px;
+    font-size: 13px;
+  }
+
+  .codeBox {
+    margin: 8px auto;
+  }
+
+  .codeBox strong {
+    font-size: 28px;
+  }
+
+  .queueList {
+    max-height: 145px;
+  }
+
+  .queueItem {
+    font-size: 12px;
+  }
+
+  .onlinePickList {
+    max-height: 76px;
+  }
+}
+
+
+/* Multiplayer Reaction */
+.reactionCard { width: min(760px, 94vw); }
+
+.reactionButton {
+  width: min(520px, 88vw);
+  height: 260px;
+  margin: 18px auto 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 34px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 38%),
+    rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.reactionButton:hover { transform: scale(1.015); }
+
+.reactionButton span {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 18px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.reactionButton strong {
+  display: block;
+  font-size: clamp(58px, 12vw, 118px);
+  line-height: 0.9;
+  letter-spacing: -4px;
+}
+
+.reactionGo {
+  color: #15002f;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent 35%),
+    linear-gradient(135deg, #fff15c, #ff9f1c);
+  box-shadow:
+    0 28px 80px rgba(255, 159, 28, 0.45),
+    0 0 0 6px rgba(255, 241, 92, 0.35);
+  animation: goPulse 0.55s ease-in-out infinite alternate;
+}
+
+@keyframes goPulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.035); }
+}
+
+.reactionGo span { color: rgba(21, 0, 47, 0.68); }
+
+.reactionStatus {
+  min-height: 24px;
+  margin: 12px 0 0;
+  font-size: 20px;
+  font-weight: 950;
+}
+
+.reactionInfo {
+  width: min(520px, 88vw);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px auto 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+/* Kahoot-style leaderboard */
+.leaderboardCard { width: min(820px, 94vw); }
+
+.kahootBoard {
+  width: min(640px, 100%);
+  max-height: 330px;
+  overflow-y: auto;
+  margin: 16px auto 0;
+  padding-right: 5px;
+}
+
+.kahootBoard::-webkit-scrollbar { width: 8px; }
+.kahootBoard::-webkit-scrollbar-thumb { border-radius: 999px; background: rgba(255, 255, 255, 0.28); }
+
+.kahootRow {
+  display: grid;
+  grid-template-columns: 58px 1fr 120px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 18px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.kahootRow + .kahootRow { margin-top: 8px; }
+
+.placeBadge {
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: #160034;
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: 950;
+}
+
+.kahootName { min-width: 0; }
+.kahootName strong { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.kahootName span { display: block; margin-top: 3px; color: rgba(255, 255, 255, 0.66); font-size: 13px; font-weight: 850; }
+
+.pointsBox { text-align: right; }
+.pointsBox strong { display: block; color: #fff15c; font-size: 22px; }
+.pointsBox span { display: block; color: rgba(255, 255, 255, 0.66); font-size: 12px; font-weight: 850; }
+
+.winnerBox {
+  width: min(420px, 100%);
+  margin: 14px auto 0;
+  padding: 14px;
+  border-radius: 22px;
+  color: #160034;
+  background: linear-gradient(135deg, #fff15c, #ff9f1c);
+}
+
+.winnerBox span { display: block; margin-bottom: 5px; font-size: 12px; font-weight: 950; text-transform: uppercase; letter-spacing: 2px; opacity: 0.72; }
+.winnerBox strong { display: block; font-size: 28px; }
+
+@media (max-width: 750px) {
+  .reactionButton { height: 220px; border-radius: 26px; }
+  .reactionInfo { flex-direction: column; gap: 4px; }
+  .kahootBoard { max-height: 300px; }
+  .kahootRow { grid-template-columns: 46px 1fr 90px; gap: 8px; padding: 8px; }
+  .placeBadge { height: 36px; font-size: 13px; }
+  .pointsBox strong { font-size: 18px; }
+  .pointsBox span, .kahootName span { font-size: 11px; }
+}
+/* Lobby overflow fix
+   Paste this at the VERY BOTTOM of src/App.css */
+
+.lobbyCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.lobbyCard .codeBox {
+  flex-shrink: 0;
+}
+
+.lobbyCard .playersPanel {
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lobbyCard .playerList {
+  min-height: 0;
+  flex: 1;
+  max-height: clamp(110px, 24vh, 190px);
+  overflow-y: auto;
+}
+
+.lobbyCard .fullWidth {
+  flex-shrink: 0;
+}
+
+.lobbyCard .buttonRow {
+  flex-shrink: 0;
+}
+
+@media (max-width: 750px) {
+  .lobbyCard .playerList {
+    max-height: clamp(95px, 22vh, 145px);
+  }
+
+  .lobbyCard .codeBox {
+    padding: 8px;
+  }
+
+  .lobbyCard .playersPanel {
+    margin-top: 8px;
+    padding: 8px;
+  }
+}
+/* Game selector overflow fix
+   Paste this at the VERY BOTTOM of src/App.css */
+
+.pickCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.pickCard .pickTop {
+  flex-shrink: 0;
+}
+
+.pickCard .gameGrid {
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  max-height: clamp(180px, 38vh, 330px);
+  padding-right: 5px;
+}
+
+.pickCard .pickBottom {
+  flex-shrink: 0;
+}
+
+.pickCard .selectedBox {
+  margin-top: 8px;
+}
+
+@media (max-width: 750px) {
+  .pickCard .gameGrid {
+    max-height: clamp(150px, 32vh, 230px);
+  }
+
+  .pickCard .pickBottom {
+    margin-top: 8px;
+  }
+
+  .pickCard .tinyNote {
+    margin-top: 5px;
+  }
+}
+/* Leaderboard overflow fix
+   Paste this at the VERY BOTTOM of src/App.css */
+
+.leaderboardCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboardCard .eyebrow,
+.leaderboardCard h1,
+.leaderboardCard .subtitle,
+.leaderboardCard .winnerBox {
+  flex-shrink: 0;
+}
+
+.leaderboardCard .kahootBoard {
+  min-height: 0;
+  flex: 1;
+  max-height: clamp(170px, 38vh, 330px);
+  overflow-y: auto;
+}
+
+.leaderboardCard .buttonRow {
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+
+@media (max-width: 750px) {
+  .leaderboardCard .kahootBoard {
+    max-height: clamp(145px, 32vh, 250px);
+  }
+
+  .leaderboardCard .buttonRow {
+    margin-top: 8px;
+  }
+}
